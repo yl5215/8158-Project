@@ -1,0 +1,29 @@
+```{r}
+library(janitor)
+library(tidyverse)
+library(dplyr)
+library(poLCA)
+```
+
+```{r}
+data = read_csv("data.csv", na=".") %>%
+  clean_names() %>%
+  mutate(across(c(q1:q36),function(cc){cc-min(cc, na.rm = T)+1}))
+```
+
+```{r}
+f = cbind(q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, q11, q12, q13, q14, q15, q16, q17, q18, q19, q20, q21, q22, q23, q24, q25, q26, q27, q28, q29, q30, q31, q32, q33, q34, q35, q36)~1
+```
+
+```{r}
+#不用跑这些code，我把output都存到lc_models.RData了。跑下来要十分钟。
+#lc2 = poLCA(f,data,nclass=2,maxiter=10000)
+#lc3 = poLCA(f,data,nclass=3,maxiter=10000)
+#lc4 = poLCA(f,data,nclass=4,maxiter=10000)
+#save(lc2, lc3, lc4, file = "lc_models.RData")
+```
+
+```{r}
+load("lc_models.RData")
+```
+
