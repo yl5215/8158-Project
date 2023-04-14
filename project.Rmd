@@ -5,6 +5,8 @@ library(dplyr)
 library(poLCA)
 ```
 
+The data records answers to the Experiences in Close Relationships Scale questionnaire. The data set was downloaded from [Open-Source Psychometrics Project](http://openpsychometrics.org/_rawdata/) and was originally named ECR-data-1March2018. The questionnaire can be accessed [here](http://openpsychometrics.org/tests/ECR.php). 
+
 ```{r}
 data = read_csv("data.csv", na=".") %>%
   clean_names() %>%
