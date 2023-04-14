@@ -19,7 +19,14 @@ df = data %>% drop_na()
 
 features = df[,1:36]
 parallel = fa.parallel(features, cor="poly", fa="pc")
+
+res2 = fa(features, 2, cor = 'poly', rotate = 'geominQ', fm = 'wls')
+res3 = fa(features, 3, cor = 'poly', rotate = 'geominQ', fm = 'wls')
+res4 = fa(features, 4, cor = 'poly', rotate = 'geominQ', fm = 'wls')
+res2$loadings
 ```
+
+L1: Q1,Q3,Q5,Q7,Q9,Q11,Q13,
 
 ```{r}
 psych::alpha(data[,1:36])
