@@ -1,0 +1,27 @@
+---
+title: "efa"
+author: "Jiayi Shi"
+date: "2023-04-14"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(psych)
+```
+
+## R Markdown
+```{r}
+data = read.csv("data.csv")
+data[data==0] = NA
+df = data %>% drop_na()
+
+features = df[,1:36]
+parallel = fa.parallel(features, cor="poly", fa="pc")
+```
+
+```{r}
+psych::alpha(data[,1:36])
+```
+
